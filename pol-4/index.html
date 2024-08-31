@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Music Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="hero">
+        <div class="navbar">
+            <img src="images/logo.png" class="logo">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SPECIFICATION</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="left">
+                <h1>THE <br> REAL <br> Music🎧</h1>
+                <!-- <h6>-By Pritam Pawar </h6> -->
+
+            </div>
+            <div class="right">
+                <!-- <p>Click To Play</p> -->
+                <img  src="images/711pre.png" id="icon-1">
+                <img  src="images/play.png" id="icon">
+                <img  src="images/7117525.png" id="icon1">
+            </div>
+        </div>
+    </div>
+
+  <audio id="myAudio" src="images/sai.mp3"></audio>
+  
+  <script>
+      const audio = document.getElementById('myAudio');
+      const prevButton = document.getElementById('icon-1');
+      const playpauseButton = document.getElementById('icon');
+      const nextButton = document.getElementById('icon1');  
+      
+    let currentSongIndex = 0;
+      const songList = ["images/sai.mp3", 
+                        "images/Walker.mp3",
+                        "images/power.mp3", 
+                        "images/Deva Deva.mp3", 
+                        "images/krishna.mp3",
+                        "images/ektara.mp3",
+                        "images/rahio.mp3",
+                        "images/song1.mp3",
+                        "images/song2.mp3",
+                        "images/song3.mp3",
+                        "images/song4.mp3",
+                        "images/sunp.mp3",
+                        "images/tere sare.mp3"];
+      
+        playpauseButton.addEventListener('click', function() {
+          
+          if(myAudio.paused){
+                audio.play();
+                icon.src = "images/pause.png";
+            }else{
+                audio.pause();
+                icon.src = "images/play.png";
+            }
+    });
+    
+        nextButton.addEventListener('click', function() {
+            // Check if there's a next song in the list
+            if (currentSongIndex < songList.length - 1) {
+              currentSongIndex++;
+              audio.src = songList[currentSongIndex];
+              audio.play();
+          } else {
+              // If we're at the end of the list, loop back to the first song
+              currentSongIndex = 0;
+              audio.src = songList[currentSongIndex];
+              audio.play();
+          }
+    });
+
+         prevButton.addEventListener('click', function() {
+            // Check if there's a Previous song in the list
+            if (currentSongIndex = currentSongIndex) {
+              currentSongIndex--;
+              audio.src = songList[currentSongIndex];
+              audio.play();
+            }else {
+              // If we're at the first of the list, loop back to the last song
+              currentSongIndex = songList.length - 1;
+              audio.src = songList[currentSongIndex];
+              audio.play();
+          }
+          });
+    </script>       
+</body>
+</html>
+
+
+
